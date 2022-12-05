@@ -3,7 +3,7 @@
 using namespace std;
 
 template<class T>
-class less_cmp // Less than compare with nonpointer type
+class less_cmp 
 {
 public:
 	inline bool operator()(T lVal, T rVal)
@@ -28,10 +28,10 @@ public:
 		return m_id;
 	}
 
-	// Overload operator
+	
 	bool operator<(NetworkMessage& m)
 	{
-		// Check the priority level of both network messages
+		
 		if (m_priority < m.GetPriority())
 		{
 			return true;
@@ -45,7 +45,7 @@ public:
 	}
 	bool operator>(NetworkMessage& m)
 	{
-		return !(*this < m);	// NOT( this is less than m )
+		return !(*this < m);	
 	}
 private:
 	int m_priority;
@@ -54,17 +54,16 @@ private:
 
 int main()
 {
-	cout << "Priority queue data structure example!" << endl << endl;
 
-	const int SIZE = 5;
+	const int SIZE = 6;
 	PriorityQueue<NetworkMessage, less_cmp<NetworkMessage>> que(SIZE);
-
+	que.push(NetworkMessage(2, 435));
 	que.push(NetworkMessage(3, 100));
 	que.push(NetworkMessage(2, 286));
 	que.push(NetworkMessage(1, 362));
 	que.push(NetworkMessage(3, 435));
 	que.push(NetworkMessage(1, 1000));
-	// Display the priority queue
+	
 	cout << "Priority queue content (Size - " << que.GetSize() << ") : " << endl;
 
 	while (que.isEmpty() == false)
@@ -86,7 +85,7 @@ int main()
 	{
 		cout << "The container is NOT empty." << endl;
 	}
-	que.front();
+	
 	
 	return 0;
 }

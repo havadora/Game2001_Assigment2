@@ -60,7 +60,7 @@ public:
 	}
 
 private:
-	LinkNode<T>* m_node;	// Pointer to a node in the linked list
+	LinkNode<T>* m_node;	
 };
 template <class T>
 class LinkedList
